@@ -2,6 +2,10 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import { dayStatsSlice, dayStatsSliceName } from "./dayStats/dayStats.slice";
 import {
+  totalCounterSlice,
+  totalCounterSliceName,
+} from "./totalCounter/totalCounter.slice";
+import {
   totalStatsSlice,
   totalStatsSliceName,
 } from "./totalStats/totalStats.slice";
@@ -23,11 +27,16 @@ import {
   totalGeoBucketStatsSliceName,
 } from "./totalGeoBucketStats/totalGeoBucketStats.slice";
 import { ordersSlice } from "./orders/orders.slice";
+import { asinCollectionsSlice, asinCollectionsSliceName } from "./asinCollection/asin-collection.slice";
+import { catalogItemsSlice, catalogItemsSliceName } from "./catalogItems/catalog-items.slice";
 
 export const rootReducer = combineReducers({
   filters: filtersSlice.reducer,
   orders: ordersSlice.reducer,
+  [asinCollectionsSliceName]: asinCollectionsSlice.reducer,
+  [catalogItemsSliceName]: catalogItemsSlice.reducer,
 
+  [totalCounterSliceName]: totalCounterSlice.reducer,
   [totalStatsSliceName]: totalStatsSlice.reducer,
   [totalPlatformStatsSliceName]: totalPlatformStatsSlice.reducer,
   [totalGeoBucketStatsSliceName]: totalGeoBucketStatsSlice.reducer,

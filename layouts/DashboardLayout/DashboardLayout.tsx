@@ -39,15 +39,45 @@ export function DashboardLayout({ children }: PropsWithChildren) {
         </Link>
 
         <div className={styles.navLinks}>
+
           <NavLink
             icon={<SvgHomeIcon />}
-            href="/overview"
+            href="/overview-asin-scanner"
             className={styles.navLink}
           >
             <span className={styles.navLinkText}>Overview</span>
           </NavLink>
-
           <NavLink
+            icon={<SvgBarchartIcon />}
+            href="/analytics"
+            className={styles.navLink}
+          >
+            <span className={styles.navLinkText}>Analytics</span>
+          </NavLink>
+          <NavLink
+            icon={<SvgHomeIcon />}
+            href="/catalog-items"
+            className={styles.navLink}
+          >
+            <span className={styles.navLinkText}>CatalogItems</span>
+          </NavLink>
+          <NavLink
+            icon={<SvgHomeIcon />}
+            href="/competitive-summary"
+            className={styles.navLink}
+          >
+            <span className={styles.navLinkText}>Competitive Summary</span>
+          </NavLink>
+          <NavLink
+            icon={<SvgHomeIcon />}
+            href="/product-offers"
+            className={styles.navLink}
+          >
+            <span className={styles.navLinkText}>Product Offers</span>
+          </NavLink>
+
+
+          {/* <NavLink
             icon={<SvgDocumentIcon />}
             href="/platforms"
             className={styles.navLink}
@@ -69,15 +99,7 @@ export function DashboardLayout({ children }: PropsWithChildren) {
             className={styles.navLink}
           >
             <span className={styles.navLinkText}>Orders</span>
-          </NavLink>
-
-          <NavLink
-            icon={<SvgBarchartIcon />}
-            href="/analytics"
-            className={styles.navLink}
-          >
-            <span className={styles.navLinkText}>Analytics</span>
-          </NavLink>
+          </NavLink> */}
         </div>
       </nav>
       <main className={classNames(styles.main)}>{children}</main>

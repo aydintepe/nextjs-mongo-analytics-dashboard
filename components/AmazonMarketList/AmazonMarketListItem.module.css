@@ -1,0 +1,42 @@
+.row {
+    display: flex;
+    align-items: center;
+    flex: auto;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+    background: var(--color-light-grey);
+    border-radius: 4px;
+}
+
+.title,
+.note {
+    white-space: nowrap;
+}
+
+.title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.note {
+    font-size: 0.925rem;
+    font-weight: 400;
+}
+
+.rightAligned {
+    margin-left: auto;
+}
