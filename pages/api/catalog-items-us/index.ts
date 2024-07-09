@@ -6,7 +6,7 @@ import {
   ParseNumberPipe,
 } from "next-api-decorators";
 
-import { CatalogItem, CatalogItemsService } from "@/api/services/catalog-items.service";
+import { CatalogItem, CatalogItemsService } from "@/api/services/catalog-items-us.service";
 
 
 export type CatalogItemsResponse = { catalogItems: CatalogItem[] };
@@ -18,12 +18,14 @@ class CatalogItemsHandler {
   async getAsinCollections(
     @Query("startDate", ParseDatePipe) startDate: Date,
     @Query("endDate", ParseDatePipe) endDate: Date,
-    @Query("limit", ParseNumberPipe) limit: number
+    @Query("limit", ParseNumberPipe) limit: number,
+    @Query("page", ParseNumberPipe) page: number
   ): Promise<CatalogItemsResponse> {
     const catalogItems = await this.catalogItemsService.getCatalogItems(
       startDate,
       endDate,
-      limit
+      limit,
+      page
     );
 
     return { catalogItems };

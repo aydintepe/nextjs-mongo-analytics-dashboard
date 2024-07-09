@@ -1,8 +1,7 @@
-import { DbConnectionAsinScannerNA } from "../shared/dbConnectionAsinScannerNA";
-import CompetitiveSummaryModel from "../models/competitive-summary";
+import { DbConnectionJP } from "../shared/dbConnectionJP";
+import ProductOffersModel from "../models/product-offers";
 
-
-export interface CompetitiveSummary {
+export interface ProductOffer {
   _id: Id
   createdAt: CreatedAt
   updatedAt: UpdatedAt
@@ -163,15 +162,16 @@ export interface ShipsFrom {
 
 
 
-export class CatalogItemService {
-  @DbConnectionAsinScannerNA()
-  async getCompetitiveSUmmaries(
+
+export class ProductOffersService {
+  @DbConnectionJP()
+  async getProductOffers(
     limit: number
-  ): Promise<CompetitiveSummary[]> {
-    const CompetitiveSummaries = await CompetitiveSummaryModel.find({})
+  ): Promise<ProductOffer[]> {
+    const ProductOffers = await ProductOffersModel.find({})
       .sort({ date: -1 })
       .limit(limit)
       .exec();
-    return CompetitiveSummaries;
+    return ProductOffers;
   }
 }

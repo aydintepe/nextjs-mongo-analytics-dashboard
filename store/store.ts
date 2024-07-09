@@ -28,13 +28,21 @@ import {
 } from "./totalGeoBucketStats/totalGeoBucketStats.slice";
 import { ordersSlice } from "./orders/orders.slice";
 import { asinCollectionsSlice, asinCollectionsSliceName } from "./asinCollection/asin-collection.slice";
-import { catalogItemsSlice, catalogItemsSliceName } from "./catalogItems/catalog-items.slice";
+import { catalogItemsAUSlice, catalogItemsAUSliceName } from "./catalogItems/catalog-items-au.slice";
+import { catalogItemsJPSlice, catalogItemsJPSliceName } from "./catalogItems/catalog-items-jp.slice";
+import { catalogItemsUKSlice, catalogItemsUKSliceName } from "./catalogItems/catalog-items-uk.slice";
+import { catalogItemsUSSlice, catalogItemsUSSliceName } from "./catalogItems/catalog-items-us.slice";
+import { competitiveSummariesSlice, competitiveSummarySliceName } from "./competitiveSummary/competitive-summary.slice";
 
 export const rootReducer = combineReducers({
   filters: filtersSlice.reducer,
   orders: ordersSlice.reducer,
   [asinCollectionsSliceName]: asinCollectionsSlice.reducer,
-  [catalogItemsSliceName]: catalogItemsSlice.reducer,
+  [catalogItemsAUSliceName]: catalogItemsAUSlice.reducer,
+  [catalogItemsJPSliceName]: catalogItemsJPSlice.reducer,
+  [catalogItemsUKSliceName]: catalogItemsUKSlice.reducer,
+  [catalogItemsUSSliceName]: catalogItemsUSSlice.reducer,
+  [competitiveSummarySliceName]: competitiveSummariesSlice.reducer,
 
   [totalCounterSliceName]: totalCounterSlice.reducer,
   [totalStatsSliceName]: totalStatsSlice.reducer,

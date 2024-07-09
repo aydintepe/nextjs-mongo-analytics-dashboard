@@ -39,14 +39,20 @@ export function DashboardLayout({ children }: PropsWithChildren) {
         </Link>
 
         <div className={styles.navLinks}>
-
           <NavLink
+            icon={<SvgHomeIcon />}
+            href="/asin-lists"
+            className={styles.navLink}
+          >
+            <span className={styles.navLinkText}>ASIN LIST</span>
+          </NavLink>
+           <NavLink
             icon={<SvgHomeIcon />}
             href="/overview-asin-scanner"
             className={styles.navLink}
           >
             <span className={styles.navLinkText}>Overview</span>
-          </NavLink>
+          </NavLink> 
           <NavLink
             icon={<SvgBarchartIcon />}
             href="/analytics"
@@ -60,21 +66,21 @@ export function DashboardLayout({ children }: PropsWithChildren) {
             className={styles.navLink}
           >
             <span className={styles.navLinkText}>CatalogItems</span>
-          </NavLink>
+          </NavLink> 
           <NavLink
             icon={<SvgHomeIcon />}
             href="/competitive-summary"
             className={styles.navLink}
           >
             <span className={styles.navLinkText}>Competitive Summary</span>
-          </NavLink>
-          <NavLink
+          </NavLink> 
+          {/* <NavLink
             icon={<SvgHomeIcon />}
             href="/product-offers"
             className={styles.navLink}
           >
             <span className={styles.navLinkText}>Product Offers</span>
-          </NavLink>
+          </NavLink> */}
 
 
           {/* <NavLink

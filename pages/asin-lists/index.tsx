@@ -1,13 +1,12 @@
+import classNames from "classnames";
+import styles from './index.module.scss';
 import { AgGridReact } from 'ag-grid-react'; // React Data Grid Component
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the grid
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 
 
-
-export default function Analytics() {
+export default function AsinList() {
   const [rowData, setRowData] = useState([
     { make: "Tesla", model: "Model Y", price: 64950, electric: true },
     { make: "Ford", model: "F-Series", price: 33850, electric: false },
@@ -23,22 +22,9 @@ export default function Analytics() {
   ]);
 
   return <div className="content">
-    <div className="flex flex-row mt-2 ml-4">
-      <div>
-        <Grid container spacing={2}>
-          <Grid item xl={3}>
-            <Button variant="contained">Amazon AU <br />(A39IBJ37TRP1C6)</Button>
-          </Grid>
-          <Grid item xl={3}>
-            <Button variant="contained">Amazon JP <br />(A1VC38T7YXB528)</Button>
-          </Grid>
-          <Grid item xl={3}>
-            <Button variant="contained">Amazon UK <br />(A1F83G8C2ARO7P)</Button>
-          </Grid>
-          <Grid item xl={3}>
-            <Button variant="contained">Amazon US <br />(ATVPDKIKX0DER)</Button>
-          </Grid>
-        </Grid>
+    <div className="flex flex-row">
+      <div className="flex-grow p-4">
+        arama
       </div>
     </div>
     <div className="flex flex-row">

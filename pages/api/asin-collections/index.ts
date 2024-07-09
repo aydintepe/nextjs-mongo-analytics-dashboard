@@ -6,7 +6,7 @@ import {
   ParseNumberPipe,
 } from "next-api-decorators";
 
-import { Asin, AsinCollectionService } from "@/api/services/asin-collections.service";
+import { Asin, AsinCollectionService } from "@/api/services/asin-collections-au.service";
 
 export type AsinCollectionsResponse = { asinCollections: Asin[] };
 

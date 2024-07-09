@@ -1,4 +1,4 @@
-import { DbConnectionAsinScannerNA } from "../shared/dbConnectionAsinScannerNA";
+import { DbConnectionUK } from "../shared/dbConnectionUK";
 import AsinCollectionModel from "../models/asin-collection";
 
 export interface Asin {
@@ -12,7 +12,7 @@ export interface Asin {
 }
 
 export class AsinCollectionService {
-  @DbConnectionAsinScannerNA()
+  @DbConnectionUK()
   async getAsinCollections(
     startDate:Date,
     endDate: Date,
@@ -25,7 +25,7 @@ export class AsinCollectionService {
 
     return asinCollection;
   }
-  @DbConnectionAsinScannerNA()
+  @DbConnectionUK()
   async getAsinCollectionCount(
     startDate:Date,
     endDate: Date,

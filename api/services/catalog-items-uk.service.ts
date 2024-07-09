@@ -1,8 +1,8 @@
-import { DbConnectionAsinScannerNA } from "../shared/dbConnectionAsinScannerNA";
-import ProductOffersModel from "../models/product-offers";
+import CatalogItemModel from "../models/catalog-item";
+import { DbConnectionUK } from "../shared/dbConnectionUK";
 
-export interface ProductOffer {
-  _id: Id
+export interface CatalogItem {
+  _id: string
   createdAt: CreatedAt
   updatedAt: UpdatedAt
   marketplaceId: string
@@ -12,10 +12,6 @@ export interface ProductOffer {
   Offers: Offer[]
   status: string
   ItemCondition: string
-}
-
-export interface Id {
-  $oid: string
 }
 
 export interface CreatedAt {
@@ -162,16 +158,39 @@ export interface ShipsFrom {
 
 
 
+export class CatalogItemsService {
+  @DbConnectionUK()
+  async getCatalogItems(
+    startDate?: Date,
+    endDate?: Date,
+    limit?: number,
+    page?: number,
+    sortBy?: string,
+    sortOrder?: string,
+    asin?: string
+  ): Promise<CatalogItem[]> {
+    let catalogItems;
+    if (asin != null) {
 
-export class ProductOffersService {
-  @DbConnectionAsinScannerNA()
-  async getProductOffers(
-    limit: number
-  ): Promise<ProductOffer[]> {
-    const ProductOffers = await ProductOffersModel.find({})
-      .sort({ date: -1 })
-      .limit(limit)
-      .exec();
-    return ProductOffers;
+      catalogItems = await CatalogItemModel.find({asin:asin})
+    } else if (sortBy && sortOrder != null) {
+      if(!page) page = 1;
+      if(!limit) limit = 100;
+      const skip = (page - 1) * limit;
+      const sortOptions: any = { [sortBy]: sortOrder === 'asc' ? 1 : -1 };
+      console.log(sortOptions)
+      catalogItems = await CatalogItemModel.find({asin: { $ne: null }})
+        .sort(sortOptions)
+        .skip(skip)
+        .limit(limit)
+    } else {
+      if(!page) page = 1;
+      if(!limit) limit = 100;
+      const skip = (page - 1) * limit;
+      catalogItems = await CatalogItemModel.find({asin: { $ne: null }})
+        .skip(skip)
+        .limit(limit)
+    }
+    return catalogItems;
   }
 }
